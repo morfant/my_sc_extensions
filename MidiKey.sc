@@ -39,11 +39,13 @@ MidiKey {
 		window.view.background = Color.new255(153, 180, 102);
 		window.onClose = {"MidiKey is Closed. Good bye~".postln};
 
+		// Note number 표시
 		text = StaticText(window, Rect(110, 20, 160, 60));
 		text.align = \center;
 		text.font = Font("Andale Mono", 20);
 		text.string = "NOTE";
 
+		// OctaveOffset 표시
 		text2 = StaticText(window, Rect(260, 10, 30, 10));
 		text2.align = \right;
 		text2.font = Font("Andale Mono", 15);
@@ -68,7 +70,6 @@ MidiKey {
 	prepareAction {
 		window.view.keyDownAction = {|v, char, mod, uni, keycode, key|
 			var note = 60 + (12 * octaveOffset);
-			var nextIdx = 0;
 			var sym = char.asSymbol;
 			pressedNoteNames = "";
 			// [v, char, mod, uni, keycode, key].postln;
